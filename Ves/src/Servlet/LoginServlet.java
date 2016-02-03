@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import User.User;
 
 @WebServlet("/LoginServlet")
@@ -32,6 +31,8 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user.getLogin());
 			session.setMaxInactiveInterval(30*60);
+			//RequestDispatcher rd = getServletContext().getRequestDispatcher("/home.jsp");
+			//rd.include(request, response);
 			response.sendRedirect("home.jsp");//óòî÷íèòü?
 		}else{
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.html");
