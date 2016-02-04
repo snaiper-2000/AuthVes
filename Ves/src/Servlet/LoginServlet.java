@@ -16,7 +16,7 @@ import User.User;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private User user;
+	private User user = new User();
        
     public LoginServlet() {
         
@@ -26,6 +26,11 @@ public class LoginServlet extends HttpServlet {
 		
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
+		
+		//response.setContentType("charset=UTF-8");
+		
+		//String loginUser = "admin";
+		//String passwordUser = "root";
 		
 		if(user.getLogin().equals(login) && user.getPassword().equals(password)){
 			HttpSession session = request.getSession();

@@ -7,7 +7,7 @@ public class User {
 	private String middleName;//îò÷åñòâî
 	private String login = "admin";
 	private String password = "root";
-	private String mobileTelephoe;
+	private String mobileTelephone;
 	private String email;
 	
 	
@@ -66,13 +66,13 @@ public class User {
 	}
 
 
-	public String getMobileTelephoe() {
-		return mobileTelephoe;
+	public String getMobileTelephone() {
+		return mobileTelephone;
 	}
 
 
-	public void setMobileTelephoe(String mobileTelephoe) {
-		this.mobileTelephoe = mobileTelephoe;
+	public void setMobileTelephone(String mobileTelephone) {
+		this.mobileTelephone = mobileTelephone;
 	}
 
 

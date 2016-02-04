@@ -8,7 +8,11 @@
 </head>
 <body>
 
-Добро пожаловать <%=request.getParameter("login") %>
+Welcom! <%=request.getParameter("user") %>
+Session <%=session.getId() %>
+
+
+
 
 <form action="LogoutServlet" method="POST">
 <input type="submit" value="EXIT">
