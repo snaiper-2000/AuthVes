@@ -1,7 +1,6 @@
 package Servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,11 +39,16 @@ public class LoginServlet extends HttpServlet {
 			//rd.include(request, response);
 			response.sendRedirect("home.jsp");//óòî÷íèòü?
 		}else{
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.html");
+			/*RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.html");
             PrintWriter out= response.getWriter();
             out.println("<font color=red>Either user name or password is wrong.</font>");//çàìåíèòü ñîîáùåíèåì
-            rd.include(request, response);
+            rd.include(request, response);*/
+            
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");                  
+            request.setAttribute("message", "Имя пользователя или пароль неправильные ");                                       
+            dispatcher.forward(request, response);
 		}
 	}
 
 }
+

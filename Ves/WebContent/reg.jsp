@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<br>
+<% if( request.getAttribute("message") != null ){ %>
+    ${message}
+<% } %>
   <table>
   <form action="AuthServlet" method="POST">
     <tr>
