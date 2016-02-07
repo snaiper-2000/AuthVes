@@ -32,7 +32,7 @@ public class AuthServlet extends HttpServlet {
 		
 		if(surname == null){
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/reg.jsp");                                   
-            request.setAttribute("message", "Вы не ввели Фамилию пользователя.");                                       
+            request.setAttribute("message1", "Вы не ввели Фамилию пользователя.");                                       
             dispatcher.forward(request, response); 
 		}
 	}

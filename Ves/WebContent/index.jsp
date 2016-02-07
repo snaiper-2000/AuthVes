@@ -33,6 +33,5 @@
 <% if( request.getAttribute("message") != null ){ %>
     ${message}
 <% } %>
-
 </body>
 </html>

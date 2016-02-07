@@ -8,9 +8,10 @@
 </head>
 <body>
 <br>
-<% if( request.getAttribute("message") != null ){ %>
-    ${message}
+<% if( request.getAttribute("message1") != null ){ %>
+    ${message1}
 <% } %>
+Сессия Атрибут<%=session.getAttribute("user") %>
   <table>
   <form action="AuthServlet" method="POST">
     <tr>

@@ -27,23 +27,30 @@ public class AuthFilter implements Filter {
 		
 		HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
-         
+        
         String uri = req.getRequestURI();
         
         String uriPath = req.getRequestURI().substring(req.getContextPath().length()); //Получаем путь до страницы
         System.out.println(uriPath);
         //this.context.log("Requested Resource::"+uri);
          
-        HttpSession session = req.getSession(false);
+        HttpSession session = req.getSession();
+        //String perem = (String) session.getAttribute("user");
         
-        if ("reg.jsp".equals(uriPath)/* ||  "logout.jsp".equals(uriPath)*/) {
+        if ("reg.jsp".equals(uriPath)) {
         	
-        	res.sendRedirect("reg.jsp");
-       // 	break;
+        	if(session.getAttribute("user") == null){
+        		
+        		res.sendRedirect("index.jsp");
+        		
+        		filterChain.doFilter(request, response);
+        		
+        	}else{res.sendRedirect("reg.jsp");
+        	
         	filterChain.doFilter(request, response);
-         
+        	}
         }
-        if(session == null && !(uri.endsWith("jsp") || uri.endsWith("LoginServlet"))){
+        if(session == null /*|| session.getAttribute("user") == null*/ && (uri.endsWith("html") || uri.endsWith("LoginServlet"))){
         	
         	//if ("/reg.jsp".equals(uriPath) ||  "logout.jsp".equals(uriPath)) {
            //filterChain.doFilter(request, response);  // вызываем следующий фильтр.
@@ -52,6 +59,7 @@ public class AuthFilter implements Filter {
             res.sendRedirect("index.jsp");
            
             }else{
+            	//System.out.println("Сессия 1 "+ session.getId());
             // pass the request along the filter chain
         	filterChain.doFilter(request, response);
             }
